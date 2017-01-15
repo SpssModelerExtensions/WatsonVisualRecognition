@@ -3,7 +3,7 @@
 This extension enables you to harness the power of machine learning and automatically analyze the contents of pictures.
 
 <p align="center">
-  <img src="wvr.png"/ width=300px>
+  <img src="wvr1.png"/ width=300px>
 </p>
 
 service demo:
