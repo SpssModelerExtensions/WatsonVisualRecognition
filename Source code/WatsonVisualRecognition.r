@@ -29,7 +29,7 @@ watsonClassify <- function(destination,imageURL,apiVersion,apiKey,classifiers){
 	else if( status == 401 ) warning("Unauthorized. Check your Api Key.")
 	else if( status == 404 ) warning("404")
 	else if( status == 401 ) warning("Internal Server Error")
-	else if( apiResponse$status == "ERROR") warning(apiResponse$statusInfo)
+	else if(length(apiResponse[["status"]])>0) warning(apiResponse[["statusInfo"]])
 	else return(apiResponse[["images"]][[1]])
 	return("error")
 }

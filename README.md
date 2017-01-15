@@ -1,12 +1,12 @@
 # Classify images with Watson Visual Recognition
 
-This extension enables you harness the power of deep learning and automatically analyze the contents of pictures.
+This extension enables you to harness the power of machine learning and automatically analyze the contents of pictures.
 
 <p align="center">
   <img src="wvr.png"/ width=300px>
 </p>
 
-serice demo:
+service demo:
 https://visual-recognition-demo.mybluemix.net/
 
 # Before you start
@@ -80,7 +80,7 @@ The generated output is a table that contains the picture ids, picture urls, cla
 Note that for one image the number of generated table entries depends on the number of classes assigned to picture by the classifier.
 	
 <p align="center">
-  <img src="Screenshot/output.PNG"/ width=300px>
+  <img src="Screenshot/output.PNG"/ width=500px>
 </p>
 	
 # License
