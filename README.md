@@ -29,8 +29,8 @@ https://visual-recognition-demo.mybluemix.net/
 	
 
 4. SPSS Modeler and R requirements:
-	- SPSS Modeler v18.0
-	- SPSS Modeler 'R essentials' plugin
+	- [SPSS Modeler v18.0][4]
+	- [SPSS Modeler 'R essentials' plugin][3]
 	- R packages: 
 		- httr
 		- RJSONIO
@@ -45,32 +45,33 @@ You can now start classifying your images!
 Example stream
 
 <p align="center">
-  <img src="Screenshot/stream.PNG"/ width=300px>
+  <img src="Screenshot/stream.PNG"/ width=600px>
 </p>
 
 Example images
 
 <p align="center">
-  <img src="https://cdn.pixabay.com/photo/2016/04/20/22/32/golden-retriever-1342263_1280.jpg"/ width=100px>  
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Goldfish3.jpg"/ width=100px>
-  <img src="https://cdn.pixabay.com/photo/2016/05/18/20/57/cat-1401557_1280.jpg"/ width=100px>
+  <img src="https://cdn.pixabay.com/photo/2016/04/20/22/32/golden-retriever-1342263_1280.jpg"/ width=200px>  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Goldfish3.jpg"/ width=200px>
+  <img src="https://cdn.pixabay.com/photo/2016/05/18/20/57/cat-1401557_1280.jpg"/ width=200px>
 </p>
 
 
 WatsonVisualRecognition node requires a connected source. In our example a 'Var. File' node will be used.
-The source must contain two lists of variables: one will be your pictures id or names, the other the urls you wish to analyze.
+The source must contain two columns of variables: one will be your pictures id or names, the other the urls you wish to classify.
 
 <p align="center">
-  <img src="Screenshot/input1.PNG"/ width=300px>
+  <img src="Screenshot/input1.PNG"/ width=600px>
 </p>
 
 	
-In the node window you must provide the 'api_key' for your bluemix service and choose appropriate fields in the Image URLS and Image IDS.
+In the node window you must provide the 'api_key' for your bluemix service and choose appropriate positions in the 'Image URLS' and 'Image IDS' fields.
+
 Optionally you can specify custom classifier or api version. To learn more about custom classifiers check out: 
-[ classifier link ]
+[WatsonCreateClassifier][9]
 
 <p align="center">
-  <img src="Screenshot/input2.PNG"/ width=300px>
+  <img src="Screenshot/input2.PNG"/ width=600px>
 </p>
 	
 	
@@ -80,8 +81,10 @@ The generated output is a table that contains the picture ids, picture urls, cla
 Note that for one image the number of generated table entries depends on the number of classes assigned to picture by the classifier.
 	
 <p align="center">
-  <img src="Screenshot/output.PNG"/ width=500px>
+  <img src="Screenshot/output.PNG"/ width=600px>
 </p>
+
+Looking for pictures to classify? Try these extensions: [FacebookPhotoImport][7] and [InstagramPictures][8]
 	
 # License
 - [Apache 2.0][1]
@@ -91,3 +94,8 @@ Note that for one image the number of generated table entries depends on the num
 - Mateusz Mika
 
  [1]: http://www.apache.org/licenses/LICENSE-2.0.html
+ [3]: http://www.ibm.com/support/knowledgecenter/SS3RA7_18.0.0/modeler_r_plugin_install_project_ddita/clementine/programmability_option/r_essentials_install.html
+ [4]: http://www-03.ibm.com/software/products/en/spss-modeler
+ [7]: https://github.com/SpssModelerExtensions/FacebookPhotoImport
+ [8]: https://github.com/SpssModelerExtensions/InstagramPictures
+ [9]: https://github.com/SpssModelerExtensions/WatsonCreateClassifier
