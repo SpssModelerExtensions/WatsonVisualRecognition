@@ -23,14 +23,14 @@ watsonClassify <- function(destination,imageURL,apiVersion,apiKey,classifiers){
 					,'&classifier_ids=',classifiers,"&version=",apiVersion,"&api_key=",apiKey)
 	apiResponse <- GET(api_call)
 	status <- apiResponse[["status_code"]]
-	apiResponse <- content(apiResponse)
+	apiResponse <- content(apiResponse)[["images"]][[1]]
 	
 	if( status == 400 ) warning("Invalid input. Check for image URLs.")
 	else if( status == 401 ) warning("Unauthorized. Check your Api Key.")
 	else if( status == 404 ) warning("404")
 	else if( status == 401 ) warning("Internal Server Error")
-	else if(length(apiResponse[["status"]])>0) warning(apiResponse[["statusInfo"]])
-	else return(apiResponse[["images"]][[1]])
+	else if( "error" %in% names(apiResponse)  ) warning(apiResponse[["error"]])
+	else return(apiResponse)
 	return("error")
 }
 # Input 
@@ -49,11 +49,16 @@ outClassifierIDs <- c()
 outClassifierNames <- c()
 
 for(i in 1:length(imageURLs)){
-    imageID <- paste(imageIDs[i])
+	imageID <- paste(imageIDs[i])
 	imageURL <- paste(imageURLs[i])
 	apiResponse <- watsonClassify("classify",imageURL,apiVersion,apiKey,classifier_list)
-	classifiers <- apiResponse[["classifiers"]]
-	imageSource <- apiResponse[["source_url"]]
+	if(apiResponse != "error") {
+		classifiers <- apiResponse[["classifiers"]]
+		imageSource <- apiResponse[["source_url"]]
+	} else {
+		warning(paste0("Above error is for photo with ID: ",imageID,"\n\t... and URL: ",imageURL))
+		next
+	}
 	if( length(classifiers) > 0 ){ 
 		for(classifier in classifiers){
 			recognizedClasses <- classifier[["classes"]]
